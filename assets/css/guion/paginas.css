@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Fondo suave para una mejor lectura */
+    color: #333; /* Texto más oscuro para contraste */
+    overflow-y: auto; /* Asegura que el scrollbar se muestre cuando sea necesario */
+}
+
+/* Wrapper centralizado y espacioso */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative; /* Cambiado a relative para que no bloquee el scroll */
+    top: 1%; /* Si deseas mantener el espaciado superior */
+    margin: 8px auto;
+    max-width: 1200px; /* Limitar el ancho máximo */
+    padding-bottom: 20px; /* Espacio adicional en la parte inferior */
+}
+
+/* Cajas de párrafos con un estilo moderno */
+.paragraph-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 280px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover de la caja para dar interacción */
+.paragraph-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones más pequeños, con estilo minimalista */
+button {
+    margin: 8px;
+    padding: 6px 15px; /* Botones más compactos */
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #3498db; /* Azul moderno */
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Botones con esquinas más redondeadas */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px); /* Pequeño efecto de "levantamiento" */
+}
+
+/* Estilo avanzado para el botón de eliminar */
+.remove-button {
+    background-color: #e74c3c; /* Rojo moderno */
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos avanzados del modal */
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 10px;
+    border-radius: 12px;
+    width: 320px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.modal-content p {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+.close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    color: #7f8c8d;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #2c3e50;
+}
+
+#editModal, #editModal2, #editModal3, #editModal4, #editModal5, #editModal6, #editModal7, #editModal8 {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con más opacidad */
+    transition: opacity 0.3s ease;
+}
+
+#editModal.active, #editModal2.active, #editModal3.active, #editModal4.active, #editModal5.active, #editModal6.active, #editModal7.active, #editModal8.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Contenedor para los botones */
+.button-group {
+    display: flex;
+    justify-content: center; /* Alinea los botones horizontalmente en el centro */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 10px; /* Separación entre el párrafo y los botones */
+}
+
+/* Botones de copiar y editar */
+.copy-btn, .edit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Tamaño de fuente más pequeño para los botones */
+}
+
+.copy-btn:hover {
+    background-color: #218838;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}

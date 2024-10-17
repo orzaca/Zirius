@@ -1,0 +1,101 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.tab-container {
+    position: fixed; /* Fija el menú en la pantalla */
+    top: 0; /* Pegado a la parte superior */
+    left: 0; /* Pegado a la parte izquierda */
+    width: 100%; /* Ancho completo para el menú */
+    background-color: #0D4D4D; /* Color de fondo del menú */
+    display: flex; /* Alinea los elementos en línea */
+    flex-wrap: wrap; /* Permite que el contenido se ajuste a la línea siguiente si es necesario */
+    justify-content: space-evenly; /* Distribuye los elementos de manera uniforme */
+    padding: 10px; /* Espaciado interno */
+    z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.3s ease;
+}
+.tab:hover, .tab.active {
+    border-bottom: 3px solid #FFD700; /* Amarillo dorado */
+}
+.content {
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+.message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+/* Estilos de fondo y texto por cada contenido */
+#content1 { background-color: #E5F5F5; color: #0D4D4D; }
+#content2 { background-color: #FFF2E5; color: #B35C00; }
+#content3 { background-color: #E5E9FF; color: #0033B3; }
+#content4 { background-color: #F5E5FF; color: #800080; }
+#content5 { background-color: #E5FFE5; color: #008000; }
+#content6 { background-color: #FFFDE5; color: #B39C00; }
+#content7 { background-color: #F5E5E5; color: #B30000; }
+#content8 { background-color: #E5FFF9; color: #00665B; }
+/* Estilo para el ícono de configuración */
+
+
+.settings-tab {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.3s ease;
+    text-decoration: none;
+}
+.settings-tab:hover {
+    border-bottom: 3px solid #FFD700; /* Amarillo dorado */
+}
+.settings-tab a {
+    color: #FFFFFF; /* Color del ícono */
+    text-decoration: none; /* Quita el subrayado del enlace */
+}
+
+.settings-tab a:active,
+.settings-tab a:visited,
+.settings-tab a:hover {
+    color: #FFFFFF; /* Mantén el color en todos los estados */
+}
+
+
+#dynamic-content {
+    margin-top: 60px; /* Deja espacio suficiente para el menú fijo */
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}

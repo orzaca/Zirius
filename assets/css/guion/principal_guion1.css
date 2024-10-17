@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        
+        .tab-container {
+            position: absolute; /* Fija el menú en la pantalla */
+            top: 11%; /* Pegado a la parte superior */
+            left: 21%; /* Pegado a la parte izquierda */
+            width: 70%; /* Ancho completo para el menú */
+            background-color: #a93226; /* Color de fondo del menú */
+            display: flex; /* Alinea los elementos en línea */
+            flex-wrap: wrap; /* Permite que el contenido se ajuste a la línea siguiente si es necesario */
+            justify-content: space-evenly; /* Distribuye los elementos de manera uniforme */
+            padding: 5px; /* Espaciado interno */
+            z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+        }
+
+        .tab {
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            border-bottom: 3px solid transparent;
+            transition: border-bottom 0.3s ease;
+        }
+
+ 
+        .tab:hover {
+            border-bottom: 3px solid #FFD700; /* Amarillo dorado */
+            background-color: #f5b7b1 ;
+            border-radius: 8px;
+        }
+        .content {
+            position: absolute;
+            top: 30%;
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+        }
+
+
+        .settings-tab {
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            border-bottom: 3px solid transparent;
+            transition: border-bottom 0.3s ease;
+            text-decoration: none;
+        }
+        .settings-tab:hover {
+            border-bottom: 3px solid #FFD700; /* Amarillo dorado */
+        }
+        .settings-tab a {
+            color: #FFFFFF; /* Color del ícono */
+            text-decoration: none; /* Quita el subrayado del enlace */
+        }
+
+        .settings-tab a:active,
+        .settings-tab a:visited,
+        .settings-tab a:hover {
+            color: #FFFFFF; /* Mantén el color en todos los estados */
+        }
+
+
+        #dynamic-content {
+            position: fixed;
+            top:30%;
+            left: 22%;
+            margin-top: 10px; /* Deja espacio suficiente para el menú fijo */
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+        }
+
+        /* Estilo del modal */

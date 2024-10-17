@@ -1,0 +1,71 @@
+/* Estilo básico para el body */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de fondo */
+}
+
+/* Estilos para el contenedor de pestañas */
+.tab-container {
+    width: 100%; /* Ancho completo para el menú */
+    background-color: #922b21; /* Color de fondo del menú */
+    display: flex; /* Alinea los elementos en línea */
+    flex-wrap: wrap; /* Permite que el contenido se ajuste a la línea siguiente si es necesario */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    padding: 5px; /* Espaciado interno */
+    z-index: 1000; /* Asegura que el menú esté por encima del contenido */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra del menú */
+}
+
+/* Estilos para cada pestaña */
+.tab {
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer;
+    color: white; /* Color del texto */
+    font-size: 13px; /* Tamaño de fuente */
+    border-bottom: 3px solid transparent; /* Borde inferior */
+    transition: border-bottom 0.3s ease; /* Transición suave para el borde */
+}
+
+.tab:hover, .tab.active {
+    border-bottom: 3px solid #FFD700; /* Color del borde activo o hover */
+}
+
+/* Estilos para el contenido principal */
+.content {
+    padding: 20px; /* Espaciado interno */
+    background-color: white; /* Color de fondo del contenido */
+    border-top: 1px solid #ddd; /* Línea superior para separar el contenido */
+    overflow-y: auto; /* Habilita el scroll si el contenido es demasiado grande */
+}
+
+/* Asegúrate de que el contenedor tenga un tamaño mínimo */
+#dynamic-content {
+    min-height: 500px; /* Asegúrate de que haya suficiente espacio para hacer scroll */
+}
+
+/* Estilo para el ícono de configuración */
+.settings-tab {
+    padding: 10px;
+    cursor: pointer;
+    color: white; /* Color del texto */
+    font-size: 18px; /* Tamaño de fuente */
+}
+
+/* Mantiene el color en todos los estados */
+.settings-tab a {
+    color: #FFFFFF; /* Color del ícono */
+    text-decoration: none; /* Quita el subrayado del enlace */
+}
+
+/* Estilo para el contenedor dinámico */
+#dynamic-content {
+    position: absolute;
+    left: 22%;
+    top: 21%;
+    margin-top: 10px; /* Deja espacio suficiente para el menú */
+    padding: 20px; /* Espaciado interno */
+    background-color: white; /* Color de fondo */
+    border-top: 1px solid #ddd; /* Línea superior para separar el contenido dinámico */
+}
