@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Manuales</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    header {
+      background-color: #0044cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #search-bar {
+      width: 50%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+      background-color: #333;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    /* Diseño de las tarjetas de los manuales */
+    #manual-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .manual-card {
+      background-color: white;
+      padding: 20px;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 200px;
+      transition: transform 0.3s ease;
+    }
+
+    .manual-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .manual-card img {
+      width: 50px;
+    }
+
+    .manual-card h3 {
+      font-size: 18px;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    .manual-card p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .manual-card .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: #0044cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+    }
+
+    /* Diseño responsivo */
+    @media (max-width: 768px) {
+      #search-bar {
+        width: 90%;
+      }
+
+      .manual-card {
+        width: 90%;
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabecera con buscador -->
+  <header>
+    <h1>Manuales de Usuario</h1>
+    <input type="text" placeholder="Buscar manual..." id="search-bar">
+  </header>
+
+  <!-- Menú de navegación -->
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Manuales de Usuario</a></li>
+      <li><a href="#">Guías de Instalación</a></li>
+      <li><a href="#">FAQs</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sección de listado de manuales -->
+  <section id="manual-list">
+    <div class="manual-card">
+      <img src="icono_manual.png" alt="Icono Manual">
+      <h3>Manual TV Samsung</h3>
+      <p>Categoría: Usuario, Fecha: 2024</p>
+      <a href="manual_tv_samsung.html" class="btn">Ver Manual</a>
+    </div>
+
+    <div class="manual-card">
+      <img src="icono_manual.png" alt="Icono Manual">
+      <h3>Manual de Instalación Router</h3>
+      <p>Categoría: Instalación, Fecha: 2023</p>
+      <a href="manual_router.html" class="btn">Ver Manual</a>
+    </div>
+
+    <div class="manual-card">
+      <img src="icono_manual.png" alt="Icono Manual">
+      <h3>Manual Lavadora LG</h3>
+      <p>Categoría: Usuario, Fecha: 2022</p>
+      <a href="manual_lavadora.html" class="btn">Ver Manual</a>
+    </div>
+
+    <div class="manual-card">
+      <img src="icono_manual.png" alt="Icono Manual">
+      <h3>Manual Guía TV</h3>
+      <p>Categoría: TV, Fecha: 2024</p>
+      <a href="manual_guia_tv.html" class="btn">Ver Manual</a>
+    </div>
+
+    <!-- Más manuales pueden añadirse aquí -->
+  </section>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>&copy; 2024 Manuales Corp.</p>
+  </footer>
+
+  <!-- Funcionalidad básica para buscar manuales -->
+  <script>
+    document.getElementById('search-bar').addEventListener('input', function() {
+      let filter = this.value.toLowerCase();
+      let cards = document.querySelectorAll('.manual-card');
+      
+      cards.forEach(function(card) {
+        let title = card.querySelector('h3').textContent.toLowerCase();
+        if (title.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

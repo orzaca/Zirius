@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/imagen/favicon.ico" />
+  <link rel="stylesheet" href="estilo_quejas.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memo Quejas +</title>
+
+
+ </head>
+
+ <body>
+
+  <header id="menu_quejas" class="menu_quejas">
+    <ul>
+      <li><a href="/pages/quejas/memo_gpon_internet.html">Internet Gpon</a></li>
+      <li><a href="/pages/quejas/memo_dsl_internet.html">Internet DSL</a></li>
+      <li><a href="/pages/quejas/memo_hfc_internet.html">Internet HFC</a></li>
+      <li><a href="/pages/quejas/memo_hfc_tv.html">TV HFC</a></li>
+      <li><a href="/pages/quejas/memo_dth.html">TV DTH</a></li>
+      <li><a href="/pages/quejas/memo_iptv.html">IPTV</a></li>
+      <li><a href="/pages/quejas/memo_linea.html">Linea Fija</a></li>
+    </ul>
+  </header>
+
+
+
+  <main>
+
+
+    <section id="gpon_internet" class="main-section">
+      <div class="gpon_internet" id="gpon">
+        <p class="titulo_memo" >TV HFC</p>  
+        <form class="form_quejas">
+         <label for="Tipo_de_ Queja">Tipo de Queja::::::</label> 
+         <input type="text" id="Tipo_de_ Queja" name="Tipo_de_ Queja" placeholder="Tipo de Queja" required>
+         <label for="TVS_Afectados">No. TVS Afectados::</label>
+         <input type="text" id="TVS_Afectados" name="TVS_Afectados" placeholder="No. TVS Afectados" required>
+         <label for="Modelo">Modelo de STB::::::</label>
+         <input type="text" id="Modelo" name="Modelo" placeholder="Modelo de STB" required>
+         <label for="Serie">No. Serie STB:::::: </label> 
+         <input type="text" id="Serie" name="Serie" placeholder="No. Serie STB" required>
+         <label for="problema">Problema reportado::</label>
+         <input type="text" id="problema" name="problema" placeholder="Problema Reportado" required>
+         <label for="pruebas">Pruebas realizadas::</label>
+         <input type="text" height=500 id="pruebas" name="pruebas" placeholder="Coloca las Pruebas realizadas" required>
+         <label for="contacto">Contacto en sitio:::</label>
+         <input type="text" id="contacto" name="contacto"  placeholder="Contacto en sitio" required> 
+         <label for="tel">Tel de contacto:::::</label>
+         <input type="text" id="tel" name="tel"  placeholder="Tel de contacto"  required>
+         <label for="direccion">Direccion:::::::::::</label>
+         <input type="text" id="direccion" name="direccion"  placeholder="Direccion"   oninput="capitalizeFirstLetter(this)" required>
+         <label for="horario">Horario de visita:::</label>
+         <input type="text" id="horario" name="horario"  value="Desde las 08:00 a 17:00" required>
+
+
+
+          <div class="botones-copiar">
+              <button class="boton_memo" type="button" onclick="formularioUtils.copiarFormularioQuejas()">Copiar Memo</button>
+          </div>
+
+
+      </form>
+    </div>
+
+
+  </section>   
+</main>
+
+<script>
+
+  function capitalizeFirstLetter(element) {
+    element.value = element.value.toLowerCase().replace(/^\w|\s\w/g, function (letter) {
+      return letter.toUpperCase();
+    });
+  }
+  function copiarFormulario() {
+    var formulario = document.activeElement.parentElement.parentElement;
+    var inputs = formulario.getElementsByTagName('input');
+    var textoCopiado = '';
+
+    for (var i = 0; i < inputs.length; i++) {
+      var label = inputs[i].previousElementSibling.innerText;
+      var valor = inputs[i].value;
+      textoCopiado += label + ': ' + valor + '\n';
+    }
+
+      // Crear un textarea temporal para copiar el texto
+    var textareaTemporal = document.createElement('textarea');
+    textareaTemporal.value = textoCopiado;
+    document.body.appendChild(textareaTemporal);
+
+      // Seleccionar y copiar el texto
+    textareaTemporal.select();
+    document.execCommand('copy');
+
+      // Eliminar el textarea temporal
+    document.body.removeChild(textareaTemporal);
+
+    alert('Formulario copiado al portapapeles. Pega en el Bloc de notas o en tu editor preferido.');
+  }
+</script>
+
+</body>
+
+</html>
