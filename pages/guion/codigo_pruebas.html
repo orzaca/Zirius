@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copia y Modificación de Párrafos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .paragraph {
+            margin: 10px 0;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .paragraph:hover {
+            background-color: #e0f7fa;
+            transform: scale(1.02);
+        }
+
+        .copyButton, .editButton {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #0D4D4D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .copyButton:hover, .editButton:hover {
+            background-color: #0A3B3B;
+        }
+
+        .copyButton:focus, .editButton:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="paragraph" id="para1">Este es el primer párrafo que se puede copiar.</div>
+        <button class="copyButton" onclick="copyToClipboard('para1')">Copiar Párrafo 1</button>
+        <button class="editButton" onclick="editParagraph('para1')">Modificar Párrafo 1</button>
+
+        <div class="paragraph" id="para2">Este es el segundo párrafo que se puede copiar.</div>
+        <button class="copyButton" onclick="copyToClipboard('para2')">Copiar Párrafo 2</button>
+        <button class="editButton" onclick="editParagraph('para2')">Modificar Párrafo 2</button>
+
+        <div class="paragraph" id="para3">Este es el tercer párrafo que se puede copiar.</div>
+        <button class="copyButton" onclick="copyToClipboard('para3')">Copiar Párrafo 3</button>
+        <button class="editButton" onclick="editParagraph('para3')">Modificar Párrafo 3</button>
+    </div>
+
+    <script>
+        function copyToClipboard(paragraphId) {
+            const paragraph = document.getElementById(paragraphId);
+            const textToCopy = paragraph.innerText;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Texto copiado: ' + textToCopy);
+            }, err => {
+                console.error('Error al copiar el texto: ', err);
+            });
+        }
+
+        function editParagraph(paragraphId) {
+            const paragraph = document.getElementById(paragraphId);
+            const newText = prompt('Edita el párrafo:', paragraph.innerText);
+            if (newText !== null) {
+                paragraph.innerText = newText;
+            }
+        }
+    </script>
+
+</body>
+</html>
