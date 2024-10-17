@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <link rel="stylesheet" href="iptv.css"> 
+        <title>Checklist</title>
+    </head>
+    <body>
+          <!-- Menu de Checklist -->
+     <nav class="menu-horizontal">
+                <ul>
+                    <li><a href="/pages/checklist/inicio_checklist.html"><i class="fas fa-home"></i>Menu</a></li>
+                    <li><a href="/pages/checklist/iptv/inicio_pruebas_iptv.html"><i class="fas fa-cogs"></i>Inicio Pruebas</a></li> 
+                    <li><a href="/pages/checklist/iptv/sin_senal_iptv.html"><i class="fas fa-user"></i>Sin Señal</a></li>
+                    <li><a href="/pages/checklist/iptv/prog_no_coincide_iptv.html"><i class="fas fa-user"></i>Prog no Coincide</a></li>
+                    <li><a href="/pages/checklist/iptv/sin_audio_iptv.html"><i class="fas fa-blog"></i>Sin Audio</a></li>
+                    <li><a href="/pages/checklist/iptv/algunos_canales_iptv.html"><i class="fas fa-envelope"></i>Algunos Canales </a></li>
+                    <li><a href="/pages/checklist/iptv/aprov_canales_iptv.html"><i class="fas fa-question-circle"></i>Aprov Canales</a></li>
+                    <li><a href="/pages/checklist/iptv/guia_interactiva.html"><i class="fas fa-users"></i>Guia Interactiva</a></li>
+                    <li><a href="/pages/checklist/iptv/pixeleada_iptv.html"><i class="fas fa-users"></i>Pixeleada</a></li>
+                    <li><a href="/pages/checklist/iptv/error_iptv.html"><i class="fas fa-users"></i>Mensaje de Error</a></li>
+                    <li><a href="/pages/checklist/iptv/ott_danada_iptv.html"><i class="fas fa-users"></i>Ott dañada</a></li>
+                </ul>
+            </nav>
+        
+           <!-- Step de Inicio -->
+        <div class="container">
+            <h3>SIN AUDIO</h3>
+            <div id="step1" class="step">
+            <h4>Verifica Porcentaje y sube el volumen en SKYWAY</h4>
+            <img src="img/preferencias.png" alt="online" width="50%" height="100%">
+            <h3>¿Tiene Audio?</h3>
+            <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ IPTV ▶ Sin audio')">SI</button>
+            <button class="button" onclick="nextStep('step2', 'step1')">NO</button>
+        </div>
+        
+            <!-- Step 2 -->
+            <div id="step2" class="step hidden">
+                <h4>Acciones a Seguir</h4>
+                <p align="left">1- Solicitar al cliente subir y bajar el volumen.</p>
+                <p align="left">2- Validar si es en un solo canal o en todos.</p>
+                <p align="left">3- Si todavia no tiene audio: Envia los siguientes comandos en orden:</p>
+                  <img src="img/limpiar.png" alt="online" width="40%" height="100%">
+              <p >30 Segundos despues:</p>
+                
+                <img src="img/reiniciar.png" alt="online" width="40%" height="100%">
+                <h4>¿Tiene Audio?</h4>   
+                <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ IPTV ▶ Sin audio')">SI</button>
+            <button class="button" onclick="nextStep('step3', 'step2')">NO</button>
+            </div>
+
+            <!-- Step 3 -->
+            <div id="step3" class="step hidden">
+                <h4>Envia Comando en Skyway</h4>
+            <img src="img/limpiar_datos.png" alt="resent" style="max-width: 100%; height: auto; margin: 10px 0;">
+            <h4>¿Tiene Audio?</h4>
+                <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ IPTV ▶ Sin audio')">SI</button>
+                <button class="button" onclick="nextStep('step4', 'step3')">NO</button>
+            </div>
+
+            <!-- Step 4 -->
+            <div id="step4" class="step hidden">
+                 <h4>Pruebas de Conexion</h4>
+                    <p align="left">1. Desconecta y Conectar la Cajita de la TV. </p>
+                    <p align="left">2. Desconectar y conectar HDMI de la TV y de la Cajita. </p>
+                    <p align="left">3. Conectar todo nuevamente </p>
+                    <h4>¿Tiene Audio?</h4>
+                <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ IPTV ▶ Sin audio')">SI</button>
+                <button class="button" onclick="showResult('Se Genera Avería - Enviar a Etapa FDG')">NO</button>
+            </div>
+
+            <!-- Step 5 -->
+            <div id="step5" class="step hidden">
+                <h4>Acciones</h4>
+                <p align="left">1. Preguntar al cliente desde qué dispositivo está realizando las pruebas de conexión</p>
+                <p align="left">2. Si es por PC, preguntarle si es por vía wifi o LAN</p>
+                <p align="left">3. Si es por móvil o tablet, seleccionar WiFi</p>
+
+                <button class="button" onclick="nextStep('step6', 'step5')">Wifi</button>
+                <button class="button" onclick="nextStep('step10', 'step5')">Cable</button>
+            
+            </div>
+
+            <!-- Step 6 -->
+            <div id="step6" class="step hidden">
+                    <h4>Diagnóstico por Cable Wifi</h4>
+                    <p>1. Validar si tiene repetidor e indicarle que los desconecte.
+                    </p>
+                    <p>2. Validar en UMP que Wifi esté activo.
+                    <button class="button" onclick="showModal('ruta/de/tu/imagen2.jpg')">Info</button>
+                    </p>
+                    <p>3. Si está en OFF, activa la red Wifi.
+                    <button class="button" onclick="showModal('ruta/de/tu/imagen3.jpg')">Info</button>
+                    </p>
+                    <h4>¿Encendió la Red Wifi?</h4>
+                    <button class="button" onclick="nextStep('step7', 'step6')">SI</button>
+                    <button class="button" onclick="showResult('Se Genera Avería - Enviar a Etapa FDG')">NO</button>
+            </div>
+
+                <!-- Step 7 -->
+            <div id="step7" class="step hidden">
+                    <h4>Acciones</h4>
+                    <p align="left">1. Solicitar al cliente que le de "Olvidar Red" a su red Wifi.
+                    <p align="left">2. Validar en UMP El nombre de la red Wifi y confirmar con el cliente si le muestra.
+                    <p align="left">3. Si está en OFF, activa la red Wifi.
+                    <h4>¿Cliente Puede Ver la red WIFI?</h4>
+                    <button class="button" onclick="nextStep('step8', 'step7')">SI</button>
+                    <button class="button" onclick="nextStep('step9', 'step7')">NO</button>
+            </div>
+
+                <!-- Step 8 -->
+            <div id="step8" class="step hidden">
+                    <h4>ACCIONES: </h4>
+                    <p align="left">1. Indicale al cliente que se Conecte a la red WIFI.
+                    <h4>Cliente se conecta y Navega?: </h4>
+                    <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Internet GPON ▶ No Navega ▶ Conexiones Físicas')">SI</button>
+                    <button class="button" onclick="nextStep('step9', 'step8')">NO</button>
+            </div>
+
+            <!-- Step 9 Cambiar COntraseña UMP-->
+            <div id="step9" class="step hidden">
+                    <h4>Cambiar Nombre de Red y Contraseña: </h4>
+                    <p align="left">1. Debes realizar cambio de contraseña y nombre de red en UMP.
+                    <p align="left">2. Debes Validar la titularidad (Ingresa pagina restricciones).
+                    <p align="left">3. Guardas los cambios y refrescas.
+                    <h4>Cliente se conecta y Navega?: </h4>
+                    <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Internet GPON ▶ No Navega ▶ Conexiones Físicas')">SI</button>
+                    <button class="button" onclick="showResult('Realizar La vista tecnica, colocando todos los pasos realizados')">NO</button>
+            </div>
+
+               <!-- Step 10  Conexiones-->
+            <div id="step10" class="step hidden">
+                    <h4> Acciones</h4>
+                    <p align="left">1. Indicarle al cliente que verifique si esta conectado el cable tanto en la PC como en el router. </p>
+                    <p align="left">2. Desconectar y conectar el cable de red </p>
+                    <p align="left">3. Deshabilitar y Habilitar la tarjeta de red. 
+                        <button class="button_modal" onclick="showModal('img/habilitar_tarjeta.png')">¿Como se Hace?</button>
+                    </p>
+                    <h4>Dio error al Deshabilitar la Tarjeta?: </h4>
+                    <button class="button" onclick="showResult('Debe revisar el PC con tecnico de confianza')">SI</button>
+                    <button class="button" onclick="nextStep('step11', 'step10')">NO</button>
+            </div>
+
+            <!-- Step 11 Ping a google -->
+            <div id="step11" class="step hidden">
+                    <h4> Realizar ping a google</h4>
+                    <p>1. Debes Realizar los siguientes paso: </p>
+                        <button class="button_modal" onclick="showModal('img/ping_a_google.png')">¿Como se Hace?</button>
+                    <p>2. Ver si arroja perdida de paquetes 
+                    </p>
+                    <button class="button_modal" onclick="showModal('img/resultado_ping.png')">¿Como se Hace?</button>
+                    
+                    <h4>Perdida de paquetes mayor a 1%?</h4>
+                    <button class="button" onclick="showResult('Realizar La vista tecnica, colocando todos los pasos realizados')">SI</button>
+                    <button class="button" onclick="showResult('Debe revisar el PC con tecnico de confianza')">NO</button>
+            </div>
+
+                 
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span> <!-- Botón de cierre -->
+                        <img id="modalImage" src="" alt="Imagen en modal" style="width:100%; height:auto;" />
+                    </div>
+                </div>
+
+            <!-- Contenedor para mostrar el resultado -->
+            <div id="resultContainer"></div>
+        </div>
+
+    <script>
+        // Función para avanzar de un paso a otro
+        function nextStep(next, current) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+
+            // Ocultar el contenedor del resultado cuando se cambia de paso
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.style.display = 'none';
+        }
+
+        // Mostrar resultado en el contenedor de la página
+        function showResult(message) {
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.style.display = 'block'; // Mostrar el contenedor
+            resultContainer.innerHTML = message; // Mostrar el mensaje en el contenedor
+        }
+
+         </script>
+        
+
+  <script>
+    // Función para mostrar el modal con la imagen seleccionada
+    function showModal(imageSrc) {
+        document.getElementById('modalImage').src = imageSrc; // Cambia la imagen en el modal
+        document.getElementById('myModal').style.display = 'block'; // Muestra el modal
+    }
+
+    // Obtener el modal y el botón de cierre
+    var modal = document.getElementById('myModal');
+    var closeBtn = document.getElementsByClassName('close')[0];
+
+    // Función para cerrar el modal cuando se hace clic en el botón de cierre
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Función para cerrar el modal cuando se hace clic fuera del contenido del modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+
+</body>
+</html>
