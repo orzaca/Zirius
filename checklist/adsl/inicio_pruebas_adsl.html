@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adsl.css"> 
+    <title>Checklist</title>
+    
+</head>
+<body>
+
+
+   <nav class="menu-horizontal">
+                    <ul>
+                        <li><a href="/pages/checklist/inicio_checklist.html">Menu</a></li>
+                        <li><a href="/pages/checklist/adsl/inicio_pruebas_adsl.html">Inicio Adsl</a></li> 
+                        <li><a href="/pages/checklist/adsl/ok_nonavega_adsl.html">Leds Ok no navega</a></li>
+                        <li><a href="/pages/checklist/adsl/cpe_danado_adsl.html">CPE Dañado</a></li>
+                        <li><a href="/pages/checklist/adsl/cpe_reinicia_adsl.html">CPE se Reinicia</a></li>
+                        <li><a href="/pages/checklist/adsl/ethernet_off_adsl.html">Ethernet OFF</a></li>
+                        <li><a href="/pages/checklist/adsl/internet_rojo_adsl.html">Internet rojo / Off</a></li>
+                        <li><a href="/pages/checklist/adsl/lentitud_adsl.html">Lentitud e Inestabilidad</a></li>
+                        <li><a href="/pages/checklist/adsl/portadora_off.html">Portadora Off</a></li>
+                        <li><a href="/pages/checklist/adsl/wlan_rojo.html">Wlan Rojo / Off</a></li>
+                        <li><a href="/pages/checklist/adsl/linea_fija.html">Linea Fija</a></li>
+                    </ul>
+    </nav>
+
+
+    <div class="container">
+        <h3>Inicio Pruebas ADSL</h3>
+        <div id="step1" class="step">
+            <p align="left">1. Revisar Saldos</p>    
+            <p align="left">2. Revisa Fallas Generales</p>    
+            <p align="left">3. Revisar Quejas Abiertas</p>    
+            <p align="left">4. Revisar Ordenes Abiertas</p>    
+            <p align="left">5. Bloqueo en la Op 25</p>    
+            <p align="left">6. Mira la velocidad Contratada</p>    
+            <p align="left">7. Entra a UMP y Mirar Nivel SNR</p> 
+            <p align="left">8. Entra a la Pagina de Restricciones</p>   
+            <p align="left">9. Revisar si aplica FULL CLARO</p>
+            
+              <div class="problema_iptv">
+                        <a href="/pages/checklist/adsl/nivel_cero_adsl.html" class="button">Revisar Nivel Cero</a>
+               </div>
+            <h3>¿Nivel Cero OK?</h3>
+            <button class="button" onclick="nextStep('step2', 'step1')">Si</button>
+            <button class="button" onclick="showResult('Favor realizar el proceso de acuerdo a la inconsistencia presentada y asegúrese de tipificar por la ruta correcta.')">No</button>
+        </div>
+
+        <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                       <div class="image-container">
+                            <img src="online.png" alt="resent" style="max-width: 100%; height: auto; margin: 10px 0;">
+                       </div>
+                </div>
+        </div>
+
+
+        <div id="step2" class="step hidden">
+            <h4>1. Preguntar al cliente el estado de las luces del Router</h4>
+            <h4>2. Confirmar el inconveniente con el cliente.</h4>
+            <h4>- Selecciona el Inconveniente - </h4>
+            <div class="problema_iptv">
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Luces OK no navega</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Cpe Se Reinicia</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Cpe Dañado</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Portadora Apagada</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+                <a href="/pages/checklist/adsl/nivel_cero.html" class="button">Revisar Nivel Cero</a>
+
+            </div>
+
+           
+        </div>
+
+        <div id="step3" class="step hidden">
+            <h4>Pruebas de Conexion</h4>
+            <p align="left">1. Confirmar que el OTT player este conectado. </p>
+            <p align="left">2. Verificar cable de Red conectada a la OTT. </p>
+            <p align="left">3. Validar conexion HDMI con la caja y la TV. </p>
+            <p align="left">4. Desconectar y conectar OTT de la corriente. </p>
+            <p align="left">5. Confirmar en SkyWay si OTT esta conectada via wifi o cable LAN. </p>
+            <h4>Conectada via WIF o pr Cable LAN</h4>
+                 <button class="button" onclick="showResult('Se debe realizar la queja indicando que esta conectado via WIFI')">Wifi</button>
+                <button class="button" onclick="nextStep('step5', 'step3')">LAN</button>
+        </div>
+
+        
+             <div id="step4" class="step hidden">
+                <h4>Envia Comando en Skyway</h4>
+                <img src="limpiar_datos.png" alt="resent" style="max-width: 100%; height: auto; margin: 10px 0;">
+                <h4>¿Tiene Señal?</h4>
+                <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ TV IPTV ▶ Sin señal ▶ Reincio OTT PLayer')">Sí</button>
+                <button class="button" onclick="showResult('Ingresa queja y enviar a etapa FGD')">No</button>
+            </div>
+
+
+
+        <!-- Más pasos aquí... -->
+
+
+             <div id="step5" class="step hidden">
+                <h4>Segun la la novedad, realizar el proceso e indicarle al cliente</h4>
+                <p align="left">1. Preguntale al cliente si el puertos LAN donde esta conectada la TV en el router estan encendidos y titilando </p>
+                <p align="left">2. Si el cable de red esta dañado o averiado, informar al cliente que debe cambiar el cable, ya que no tiene garantia </p>
+                <h3>Si la Conexion es via WIFI, se debe ingresa la queja</h3>
+                <h4>Recibe Señal de Internet la ONT? </h4>
+                    <button class="button" onclick="nextStep('step6', 'step5')">Si</button>
+                    <button class="button" onclick="nextStep('step7', 'step5')">No</button>
+            </div>
+
+
+            <div id="step6" class="step hidden">
+                <h4>Debes realizar proceso de Soporte Internet Gpon para verificar el Status de la ONT </h4>
+                <div class="problema_iptv">
+                    <button class="button"><a href="pagina1.html">Ir a checklist Gpon</a></button>
+                    
+                </div>
+            </div>
+
+
+            <div id="step7" class="step hidden">
+                <h4>Indicar al cliente que desconecte y conecte la corriente de la OTT </h4>
+                    <h3>1. Si tiene Señal: </h3>
+                    <p align="left"><b>Soporte Efectivo:</b>  Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ TV IPTV ▶ Sin señal ▶ Reinicio OTT PLayer </p>
+                    <h3>1. Si NO tiene Señal: </h3>
+                    <p align="left">Ingresar queja detallando que la OTT Player se encuentra con estatus OFF y Enviar a etapa FGD</p>
+                                
+
+            
+            </div>
+                
+                
+
+
+        <div id="result" class="step hidden">
+            <p id="resultMessage"></p>
+            <button class="button" onclick="reset()">Reiniciar</button>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(next, current) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+        }
+
+        function showResult(message) {
+            document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+            document.getElementById('resultMessage').innerText = message;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        function reset() {
+            document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('resultMessage').innerText = '';
+        }
+    </script>
+
+
+
+<script>
+    // MODAL
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("modalBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    // Cuando se hace clic en el botón, se abre el modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // Cuando se hace clic en la 'X', se cierra el modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Cuando se hace clic fuera del modal, se cierra
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+ <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+ <!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Checklist</title>
+                <link rel="stylesheet" href="adsl2.css"> 
+                
+
+            </head>
+
+
+            <body>
+
+   <nav class="menu-horizontal">
+                    <ul>
+                        <li><a href="/pages/checklist/inicio_checklist.html">Menu</a></li>
+                        <li><a href="/pages/checklist/adsl/inicio_pruebas_adsl.html">Inicio Adsl</a></li> 
+                        <li><a href="/pages/checklist/adsl/ok_nonavega_adsl.html">Leds Ok no navega</a></li>
+                        <li><a href="/pages/checklist/adsl/cpe_danado_adsl.html">CPE Dañado</a></li>
+                        <li><a href="/pages/checklist/adsl/cpe_reinicia_adsl.html">CPE se Reinicia</a></li>
+                        <li><a href="/pages/checklist/adsl/ethernet_off_adsl.html">Ethernet OFF</a></li>
+                        <li><a href="/pages/checklist/adsl/internet_rojo_adsl.html">Internet rojo / Off</a></li>
+                        <li><a href="/pages/checklist/adsl/lentitud_adsl.html">Lentitud e Inestabilidad</a></li>
+                        <li><a href="/pages/checklist/adsl/portadora_off.html">Portadora Off</a></li>
+                        <li><a href="/pages/checklist/adsl/wlan_rojo.html">Wlan Rojo / Off</a></li>
+                        <li><a href="/pages/checklist/adsl/linea_fija.html">Linea Fija</a></li>
+                    </ul>
+    </nav>
+
+
+
+
+    <div class="container">
+        <h3>Linea Fija</h3>
+        <div id="step1" class="step">
+            <p><h4>Realizar Nivel Cero</h4></p>
+            <p align="left">1. Verificar Saldos</p>       
+            <p align="left">2. Revisar Fallas generales</p>       
+            <p align="left">3. Revisar bloqueo Opcion 52</p>    
+            <p align="left">3. Locucion de Bloqueo</p>      
+            <p><h4>¿Nivel Cero Ok?</h4></p>
+            <button class="button" onclick="nextStep('step1_si')">SI</button>
+            <button class="button" onclick="nextStep('step1_no')">NO</button>
+        </div>
+
+        <div id="step2" class="step hidden">
+            <p><h4>Acciones</h4></p>
+            <p align="left">Preguntar si aparato telefonico usa baterias</p>       
+             <p><h2>Si usa:</h2></p>       
+             <p align="left">1. Indicar que cambie las baterias</p>       
+             <p><h2>No usa:</h2></p>
+             <p align="left">1. Si no usa: Verificar conexiones electrica a Aparato telefonico</p>       
+             <p align="left">2. Cambiar de Tomacorriente Aparato telefonico</p>    
+             <p><h5>Usa Aparato Convencional: Seguir checklist</h5></p>   
+             <button class="button" onclick="nextStep('step2_si')">Funciona</button>
+             <button class="button" onclick="nextStep('step2_no')">No Funciona</button>
+        </div>
+
+        <div id="step3" class="step hidden">
+            <p><h4>Verificar conexiones</h4></p>
+            <p align="left"> 1. Desconectar y conectar el cable que va del telefono al Splitter o Cajita</p>
+            <p align="left"> 2. invertir los extremos del cable</p>
+            
+            <button class="button" onclick="nextStep('step3_si')">Funciona</button>
+            <button class="button" onclick="nextStep('step3_no')">No Funciona</button>
+            
+        </div>
+
+        <div id="step4" class="step hidden">
+            <p><h4>Accion a tomar: </h4></p>
+            <p>1. Indicale al cliente que desconecte el Router.</p>
+            <p>2. Realiza Reset de puertos desde PISA:</p>
+            <div class="image-container">
+                    <img src="./img/reset_msan.png" alt="resent" style="max-width: 100%; height: auto; margin: 10px 0;">
+            </div>
+            <p>3. Despues de Enviar el Reset, indicar que lo conecte nuevamente. Espera que las luces enciendan</p>
+             <p><h4>4. Preguntale por el estado de las luces del Router</h4></p>
+             <p><h4>5. Confirma si puede navegar</h4></p>
+            <button class="button" onclick="reset()">iniciar de Nuevo</button>
+            <button class="button" onclick="nextStep('step4_no')">No puede Navegar</button>
+        </div>
+
+        <div id="step5" class="step hidden">
+            <p><h4>Colocar IP en automatico</h4></p>
+            <p>1. Indicarle al cliente que vas a realizar pruebas a traves del computador</p>
+            <p><i>Abrir la imagen</i><p>
+            <div class="image-container">
+                <img id="myImg" src="./img/ip.png" alt="ip_en_automatico" style="max-width: 100%; height: auto; margin: 10px 0;">
+            </div>
+            <button class="button" onclick="nextStep('step5_no')">Continuar</button>
+        </div>
+
+        <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+        </div>
+
+
+         <div id="step6" class="step hidden">
+            <p><h4>Realiza PING a Google</h4></p>
+            <p>▶ Indicale al cliente que vas a realizar pruebas desde el computador</p>
+            <p>▶ Sigue los pasos de la imagen</p>
+            <div class="image-container">
+                    <img id="myImg1" src="./img/ping_a_google.png" alt="resent" style="max-width: 100%; height: auto; margin: 10px 0;">
+              </div>
+
+            <button class="button" onclick="reset()">Reiniciar</button>
+            <button class="button" onclick="nextStep('step6_no')">Continuar</button>
+        </div>
+
+        <div id="step7" class="step hidden">
+            <p><h4>Resultados del PING</h4></p>
+            <p>Si Sale 0% Paquetes Perdidos:</p>
+              <div class="image-container">
+                    <img src="./img/resultado_ping.png" alt="resent" style="max-width: 100%; height: auto; margin: 10px 0;">
+              </div>
+
+              <p><h4>Confirme navegacion con cliente</h4></p>
+               <p>De ser necesario que pruebe en otros dispositivos</p>
+               <p>Tipificar como Soporte Efectivo</p>
+
+           <button class="button" onclick="reset()">Iniciar de Nuevo</button>
+            <button class="button" onclick="nextStep('step7_no')">Paquetes Perdidos</button>
+        </div>
+
+        
+   
+
+
+        <div id="result" class="step hidden">
+            <p id="resultMessage"></p>
+            <button class="button" onclick="reset()">Iniciar de Nuevo</button>
+        </div>
+
+
+    </div>
+
+    <script>
+        function nextStep(answer) {
+            document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+            /*step1*/
+            if (answer === 'step1_si') {
+                document.getElementById('step2').classList.remove('hidden');
+            } else if (answer === 'step1_no') {
+                    document.getElementById('resultMessage').innerText = 'Favor realizar el proceso de acuerdo a la inconsistencia presentada y asegúrese de tipificar por la ruta correcta.';
+                document.getElementById('result').classList.remove('hidden');
+            }
+
+            /*step2*/
+            if (answer === 'step2_no') {
+                document.getElementById('step3').classList.remove('hidden');
+            } else if (answer === 'step2_si') {
+                    document.getElementById('resultMessage').innerText = 'Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Telefonia Fija ▶ Sin tono ▶ Se paso Checklist Servicio ok';
+                document.getElementById('result').classList.remove('hidden');
+            }
+
+            /*step3*/    
+            if (answer === 'step3_si') {
+                document.getElementById('resultMessage').innerText = 'Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Telefonia Fija ▶ Sin tono ▶ Se paso Checklist Servicio ok';
+                document.getElementById('result').classList.remove('hidden');
+          } else if (answer === 'step3_no') {
+                 document.getElementById('resultMessage').innerText = 'Se Genera queja - Tipificar como: Reclamos ▶ Avería ▶ Telefonia Fija ▶ Sin tono ▶ Se Genera Averia';
+                document.getElementById('result').classList.remove('hidden');
+            }
+
+
+            /*step4*/        
+            if (answer === 'step4_no') {
+                document.getElementById('step5').classList.remove('hidden');
+            }
+
+            /*step5*/        
+
+            if (answer === 'step5_yes') {
+                document.getElementById('resultMessage').innerText = 'Tipificar como soporte efectivo: Reclamos > Avería > TV IPTV > Sin señal > guía interactiva';
+                document.getElementById('result').classList.remove('hidden');
+            } else if (answer === 'step5_no') {
+                document.getElementById('step6').classList.remove('hidden');
+            }
+
+            /*step6*/        
+
+            if (answer === 'step6_no') {
+                 document.getElementById('step7').classList.remove('hidden');
+            }
+       
+
+            /*step7*/  
+
+            if (answer === 'step7_no') {
+                document.getElementById('resultMessage').innerText = 'Generar Averia a TGE, En pruebas colocar todas las pruebas que se realizaron, tipificar como: Reclamos > Avería > Internet DSL / MSAN > No navega > Se genera Averia';
+                document.getElementById('result').classList.remove('hidden');
+            }
+ }
+
+        function reset() {
+            document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('resultMessage').innerText = '';
+        }
+
+
+        // modal de ip automatico
+var modal = document.getElementById("myModal");
+
+// Obtener la imagen y el modal de imagen ampliada
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Obtener el elemento de cerrar (X) y cerrar el modal cuando se haga clic
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+
+// modal del ping
+var modal = document.getElementById("myModal");
+
+// Obtener la imagen y el modal de imagen ampliada
+var img = document.getElementById("myImg1");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Obtener el elemento de cerrar (X) y cerrar el modal cuando se haga clic
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+    </script>
+</body>
+</html>

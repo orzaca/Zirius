@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="hfc.css"> 
+    <title>Checklist</title>
+</head>
+<body>
+  <!-- Menu de Checklist -->
+  <nav class="menu-horizontal">
+    <ul>
+        <li><a href="/pages/checklist/inicio_checklist.html"> Menu</a></li>
+        <li><a href="/pages/checklist/hfc/inicio_pruebas_hfc.html">Inicio Pruebas</a></li> 
+        <li><a href="/pages/checklist/hfc/online_hfc.html">Online Intermitente</a></li>
+        <li><a href="/pages/checklist/hfc/ok_nonavega_hfc.html">Luces OK no navega</a></li>
+        <li><a href="/pages/checklist/hfc/ethernet_rojo_hfc.html">Ethernet Rojo / Naranja</a></li>
+        <li><a href="/pages/checklist/hfc/lentitud_hfc.html">Lentitud e Inestabilidad</a></li>
+        <li><a href="/pages/checklist/hfc/linea_hfc.html">Linea HFC</a></li>
+        <li><a href="/pages/checklist/hfc/modem_noenciende_hfc.html">Modem No enciende</a></li>
+    </ul>
+
+</nav>
+
+
+      <!-- texto Flotante 
+                <div id="floatingReminder" class="reminder-container">
+                    <div class="reminder-header">
+                        <span class="reminder-close" onclick="closeReminder()">×</span>
+                    </div>
+                        <h4>Recuerda:</h4>
+                        <p>Siempre colocar en los memos de las quejas o de tipificacion, las pruebas reales de la llamada, si no las coloca seran penalizadas</p>
+                    </div>-->
+
+
+                    <!-- Step de Inicio -->
+                    <div class="container">
+                        <h3>LENTITUD E INESTABILIDAD</h3>
+                        <div id="step1" class="step">
+                            <h4>Validar Nivel Cero</h4>
+                            <p align="left">1. Revisar Saldos Pendientes.</p>
+                            <p align="left">2. Revisar Suspension en la OP 25.</p>
+                            <p align="left">3. Revisar si tienes ordenes abiertas</p>
+                            <p align="left">5. Revisa la pagina de Fallas generales</p>
+                            <p align="left">6. Revisa Si tiene quejas abiertas</p>
+                            <p align="left">7. Revisa Si Aplica para FULL CLARO</p>
+                            <p align="left">8. Si en PISA sale el sticker de MIGRACION, verificar cobertura</p>
+                            <h3>¿Nivel Cero OK?</h3>
+                            <button class="button" onclick="nextStep('step2', 'step1')">SI</button>
+                            <button class="button" onclick="showResult('Favor realizar el proceso de acuerdo a la inconsistencia presentada y asegúrese de tipificar por la ruta correcta.')">NO</button>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div id="step2" class="step hidden">
+                            <h4>Equipo Soporta Velocidad Actual</h4>
+                            <table>
+                                <caption>Routers y Velocidades Máximas</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Docsis 3.0</th>
+                                        <th>Velocidad Máxima (Mbps)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TC7300</td>
+                                        <td>30 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TC8305</td>
+                                        <td>25 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DPC3928SL2</td>
+                                        <td>40 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kaon CG2001</td>
+                                        <td>25 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CGA0101</td>
+                                        <td>40 Mbps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <caption>Frecuencia 5 GHz</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Router</th>
+                                        <th>Velocidad Máxima (Mbps)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CGA0112</td>
+                                        <td>60 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kaon CG2200</td>
+                                        <td>200 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arris TG2482</td>
+                                        <td>200 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kaon CG3000</td>
+                                        <td>300 Mbps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h3>¿Equipos Soporta Velocidad?</h3>
+                            <button class="button" onclick="nextStep('step3', 'step2')">SI</button>
+                            <button class="button" onclick="showResult('Se Genera WF -  Reclamos ▶ Avería ▶ Internet HFC ▶  Cambio de equipo por aumento de velocidad')">NO</button>
+                        </div>
+
+                        <!-- Step 3 -->
+
+                        <div id="step3" class="step hidden">
+                            <h4>Verificar Niveles en UMP</h4>
+                            <table>
+                                <caption>Valores de Portadoras Docsis</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Docsis</th>
+                                        <th>Portadoras </th>
+                                        <th>Upstream (Tx)</th>
+                                        <th>Downstream (Rx) - SNR</th>
+                                        <th>SNR</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>3.0</td>
+                                        <td>2</td>
+                                        <td>40 dB a 53 dB</td>
+                                        <td>-9 dB a 10 dB</td>
+                                        <td>Mayor o igual a 33 dB</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.0</td>
+                                        <td>3 o 4</td>
+                                        <td>40 dB a 50 dB</td>
+                                        <td>-9 dB a 10 dB</td>
+                                        <td>Mayor o igual a 33 dB</td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                            <h3>¿Niveles OK?</h3>
+
+                            <button class="button" onclick="nextStep('step4', 'step3')">SI</button>
+                            <button class="button" onclick="nextStep('step5', 'step3')">NO</button>
+
+                        </div>
+
+
+                
+                        <div id="step4" class="step hidden">
+                            <h4>Acciones:</h4>
+                            <h3>1. ¿Problemas con una sola pagina?</h3>
+                            <p align="left">A. Preguntarle al cliente si el problema es con una sola pagina.</p>
+                            <p align="left">B. Realizar pruebas con otras paginas.</p>
+                            <p align="left">C. <b>Si navega en otras paginas: </b>debes indicarle que se comunique a traves de whatsapp para enviar imagenes de las pruebas del tracert, Redes sociales tomaran la imagen y lo escalan al area correspondiente.</p>
+                            <h3>2. ¿el Problemas es en un solo dispositivo?</h3>
+                            <p align="left">A. Realizar cambio de canal desde UMP</p>
+                            <p align="left">B. Realizar REBOOT desde UMP</p>
+                            <p align="left">C. <b>Si navega otros dispositivos: </b>confirmar con el cliente si navega en otro dispositivo, de ser asi indicarle que revise con su tecnico de confianza el dispositivo que no navega, no se ingresa queja por este motivo</p>
+                            <h4>Problema que reporta:</h4>
+                            <button class="button" onclick="nextStep('step5', 'step4')">Lentitud</button>
+                            <button class="button" onclick="nextStep('step6', 'step4')">Inestabilidad</button>
+                        </div>
+                     
+
+                        <div id="step5" class="step hidden">
+                            <h4>LENTITUD</h4>
+                            <h3>SI LAS PRUEBAS ES POR WIFI:</h3>
+                            <p align="left">1. Indicar que se acerque lo mas que pueda al router.</p>
+                            <p align="left">2. Si tiene repetidores, desconectarlos </p>
+                            <p align="left">3. revisar en UMP si soporta 5 Ghz </p>
+                            <p align="left">4. Si soporta 5G, indicar que se conecte a esta red, si no se conecta realizar cambio de contraseña o cambio de nombre para que cliente se conecte (Previa validacion de titularidad) </p>
+                            <p align="left">6. Si aun no se conecta, indicarle que se conecte en otro dispositico que soporte la red 5G</p>
+                            <h3>REALIZA EL TEST SEA WIFI O CABLE:</h3>
+                            <p align="left">7. <b>Pide al Cliente un test de velocidad, lo puede hacer en <i>speedtest.net</i></b></p>
+                            <p align="left">8. Si no arroja la velocidad contratada: cambiar el canal de datos y realizar REBOOT desde UMP</p>
+                            <p align="left">9. Las luces del router se apagaran, esperar que sincronicen nuevamente las luces</p>
+                            <p align="left">10. Confirma con otro test de velocidad</p>
+                            <h3>¿Ya tiene la velocidad contratada?</h3>
+                             <button class="button" onclick="showResult('Colocar en el memo las pruebas del test - tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Internet HFC ▶ Lentitud en el servicio ▶ Pruebas de velocidad servicio OK')">SI</button>
+                            <button class="button" onclick="showResult('Se Genera Avería - Enviar a Etapa CGE - Colocar en el memo las pruebas del test - Tipificar como Reclamos ▶ Avería ▶ Internet HFC ▶  Lentitud en el servicio ▶ Se genero averia')">NO</button>
+                        </div>
+
+                        <!-- Step 6 -->
+                        <div id="step6" class="step hidden">
+                            <h4> Preguntar al cliente si puede realizar pruebas desde un PC</h4>
+                            <h3>SI LAS PRUEBAS ES POR PC:</h3>
+                            <h4> Realizar ping a google</h4>
+                                <p>1. Debes Realizar los siguientes paso: </p>
+                                <button class="button_modal" onclick="showModal('img/ping_a_google.png')">¿Como se Hace?</button>
+                                <p>2. Ver si arroja perdida de paquetes </p>
+                                    <img src="img/resultado_ping.png" alt="Descripción de la imagen" width="500" height="200">
+
+                                <h3>SI LAS PRUEBAS ES POR MOVIL:</h3>
+                                <p>1. Preguntar al cliente si puede realizar ping desde el movil: </p>
+                                <p>2. En caso tal que si, verificar las perdidad de paquetes </p>
+                                <p>3. Si no puede realizar ping en movil, Se Genera Avería - Enviar a Etapa CGE - Colocar en el memo cliente no puede realizar ping - Tipificar como Reclamos ▶ Avería ▶ Internet HFC ▶ Inestabilidad ▶ Se genero averia  </p>
+                                <h4>Perdida de paquetes mayor a 1%?</h4>
+                                        <button class="button" onclick="showResult('Se Genera Avería - Enviar a Etapa CGE - Colocar en el memo las pruebas del test - Tipificar como Reclamos ▶ Avería ▶ Internet HFC ▶ Inestabilidad ▶ Se genero averia')">SI</button>
+                                        <button class="button" onclick="showResult('Colocar en el memo las pruebas del Ping - tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Internet HFC ▶ Lentitud en el servicio ▶ Pruebas de velocidad servicio OK')">NO</button>
+
+                        </div>
+
+                        <!-- Step 7 -->
+
+
+                        <div id="step7" class="step hidden">
+                            <h4> Acciones</h4>
+                            <p align="left">1. Indicarle al cliente que verifique si esta bien conectado el cable tanto en la PC como en el router. </p>
+                            <p align="left">2. Desconectar y conectar el cable de red </p>
+                            <p align="left">3. Deshabilitar y Habilitar la tarjeta de red. 
+                                <button class="button_modal" onclick="showModal('img/habilitar_tarjeta.png')">¿Como se Hace?</button>
+                            </p>
+                            <h4>Dio error al Deshabilitar la Tarjeta?: </h4>
+                            <button class="button" onclick="showResult('Debe revisar el PC con tecnico de confianza')">SI</button>
+                            <button class="button" onclick="nextStep('step8', 'step7')">NO</button>
+                        </div>
+
+                        <div id="step8" class="step hidden">
+                            <h4> Realizar ping a google</h4>
+                            <p>1. Debes Realizar los siguientes paso: </p>
+                            <button class="button_modal" onclick="showModal('img/ping_a_google.png')">¿Como se Hace?</button>
+                            <p>2. Ver si arroja perdida de paquetes 
+                            </p>
+                        <img src="img/resultado_ping.png" alt="Descripción de la imagen" width="500" height="200">
+
+                            <h4>Perdida de paquetes mayor a 1%?</h4>
+                            <button class="button" onclick="nextStep('step9', 'step8')">SI</button>
+                            <button class="button" onclick="showResult('Debe revisar el PC con tecnico de confianza')">NO</button>
+                        </div>
+
+
+
+                        <!-- Step 9 -->
+                        <div id="step9" class="step hidden">
+                            <h4>ACCIONES: </h4>
+                            <p align="left">1. Se debe generar Visita tecnica </p>
+                            <p align="left">2. Tipificar como Reclamos ▶ Avería ▶ Internet HFC ▶  No navega ▶ Se genero averia
+                            </p>
+                            <p align="left">3. Actualizar niveles en axiros y pegar niveles actualizados en memo de queja </p>
+                            <p align="left">4. Colocar en el memo el estado del puerto en axiros </p>
+                            <h4>ETAPA DE LA QUEJA: </h4>
+                            <p align="left">1. Niveles Errones en axiros: Enviar queja a etapa CZO </p>
+                            <p align="left">2. Niveles correctos en axiros: Enviar queja a etapa CGE </p>
+
+                        </div>
+
+                        <!-- Step 9 Cambiar COntraseña UMP-->
+                        <div id="step9" class="step hidden">
+                            <h4>Cambiar Nombre de Red y Contraseña: </h4>
+                            <p align="left">1. Debes realizar cambio de contraseña y nombre de red en UMP.
+                                <p align="left">2. Debes Validar la titularidad (Ingresa pagina restricciones).
+                                    <p align="left">3. Guardas los cambios y refrescas.
+                                        <h4>Cliente se conecta y Navega?: </h4>
+                                        <button class="button" onclick="showResult('Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Internet GPON ▶ No Navega ▶ Conexiones Físicas')">SI</button>
+                                        <button class="button" onclick="showResult('Realizar La vista tecnica, colocando todos los pasos realizados')">NO</button>
+                                    </div>
+
+                                    <!-- Step 10  Conexiones-->
+                                    <div id="step10" class="step hidden">
+                                        <h4> Acciones</h4>
+                                        <p align="left">1. Indicarle al cliente que verifique si esta conectado el cable tanto en la PC como en el router. </p>
+                                        <p align="left">2. Desconectar y conectar el cable de red </p>
+                                        <p align="left">3. Deshabilitar y Habilitar la tarjeta de red. 
+                                            <button class="button_modal" onclick="showModal('img/habilitar_tarjeta.png')">¿Como se Hace?</button>
+                                        </p>
+                                        <h4>Dio error al Deshabilitar la Tarjeta?: </h4>
+                                        <button class="button" onclick="showResult('Debe revisar el PC con tecnico de confianza')">SI</button>
+                                        <button class="button" onclick="nextStep('step11', 'step10')">NO</button>
+                                    </div>
+
+                                    <!-- Step 11 Ping a google -->
+                                    <div id="step11" class="step hidden">
+                                        <h4> Realizar ping a google</h4>
+                                        <p>1. Debes Realizar los siguientes paso: </p>
+                                        <button class="button_modal" onclick="showModal('img/ping_a_google.png')">¿Como se Hace?</button>
+                                        <p>2. Ver si arroja perdida de paquetes 
+                                        </p>
+                                        <img src="img/imagen1.png" alt="Descripción de la imagen" width="500" height="200">
+
+
+                                        <h4>Perdida de paquetes mayor a 1%?</h4>
+                                        <button class="button" onclick="showResult('Realizar La vista tecnica, colocando todos los pasos realizados')">SI</button>
+                                        <button class="button" onclick="showResult('Debe revisar el PC con tecnico de confianza')">NO</button>
+                                    </div>
+
+
+
+                                <div id="myModal" class="modal">
+                                        <div class="modal-content">
+                                            <span class="close">&times;</span> <!-- Botón de cierre -->
+                                            <img id="modalImage" src="" alt="Imagen en modal" style="width:100%; height:auto;" />
+                                        </div>
+                                    </div>
+
+                                    <!-- Contenedor para mostrar el resultado -->
+                                    <div id="resultContainer"></div>
+                                </div>
+
+
+
+
+
+                                </div>
+
+                                <script>
+        // Función para avanzar de un paso a otro
+                                    function nextStep(next, current) {
+                                        document.getElementById(current).classList.add('hidden');
+                                        document.getElementById(next).classList.remove('hidden');
+
+            // Ocultar el contenedor del resultado cuando se cambia de paso
+                                        const resultContainer = document.getElementById('resultContainer');
+                                        resultContainer.style.display = 'none';
+                                    }
+
+        // Mostrar resultado en el contenedor de la página
+                                    function showResult(message) {
+                                        const resultContainer = document.getElementById('resultContainer');
+            resultContainer.style.display = 'block'; // Mostrar el contenedor
+            resultContainer.innerHTML = message; // Mostrar el mensaje en el contenedor
+        }
+
+
+
+
+    </script>
+
+
+  <script>
+    // Función para mostrar el modal con la imagen seleccionada
+    function showModal(imageSrc) {
+        document.getElementById('modalImage').src = imageSrc; // Cambia la imagen en el modal
+        document.getElementById('myModal').style.display = 'block'; // Muestra el modal
+    }
+
+    // Obtener el modal y el botón de cierre
+    var modal = document.getElementById('myModal');
+    var closeBtn = document.getElementsByClassName('close')[0];
+
+    // Función para cerrar el modal cuando se hace clic en el botón de cierre
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Función para cerrar el modal cuando se hace clic fuera del contenido del modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú con Submenús</title>
+    <style>
+        /* General styles */
+
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+            
+        body {
+           font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+           
+        }
+
+        nav.menu {
+            background-color: #c0392b;
+        }
+
+        nav.menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav.menu ul li {
+            position: relative;
+         justify-content: left;
+        }
+
+        nav.menu ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            
+        }
+
+        nav.menu ul li a:hover {
+            background-color: #B4CBD9;
+        }
+
+        nav.menu ul li ul.submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+        }
+
+        nav.menu ul li ul.submenu li a {
+            padding: 10px 15px;
+        }
+
+        nav.menu ul li:hover ul.submenu {
+            display: block;
+        }
+
+        /* Adjust the submenu styling for clarity */
+        nav.menu ul li ul.submenu li {
+            width: 260px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="menu">
+    <ul>
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Adsl</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inicio Pruebas</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Leds OK No navega</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">CPE Dañado</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">CPE se Reinicia</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Ethernet OFF</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Internet Rojo / Apagado</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Lentitud e Inestabilidad</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Portadora OFF / Intermitente</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Wlan Rojo / OFF</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Linea Fija</a></li>
+            </ul>
+        </li>
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">HFC</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inicio Pruebas</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Onlinea Intermitente</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">No navega / luces Ok</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Ethernet Rojo / Naranja</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Ethernet OFF</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Lentitud e Inestabilidad</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Linea Fija</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Modem no enciende, se reinicia</a></li>
+            </ul>
+        </li>
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">HFC TV</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inicio Pruebas</a></li>
+                <li><a href="">Sin Señal</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Sin Audio</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Algunos canales Sin Señal</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Cintillo de Venta</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">DTA Inhibido</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Falla Guia Interactiva</a></li>
+            </ul>
+        </li>
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Gpon</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">No Navega</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Lentitud</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inestabilidad</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">PON Apagado / LOS Rojo</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Sin tono</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">OTT Dañado</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Migracion a Gpon</a></li>
+            </ul>
+        </li>
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">IPTV</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inicio Pruebas</a></li>
+                <li><a href="/pages/checklist/iptv/sin_senal_iptv.php">Sin Señal</a></li>
+                <li><a href="/pages/checklist/iptv/programacion_no_coincide.php">Prog. No coincide con Guia</a></li>
+                <li><a href="/pages/checklist/iptv/sin_audio.php">Sin Audio</a></li>
+                <li><a href="/pages/checklist/iptv/algunos_canales.php">Algunos canales sin señal</a></li>
+                <li><a href="/pages/checklist/iptv/aprovisio.php">Aprovisio. de Paquetes</a></li>
+                <li><a href="/pages/checklist/iptv/guia_interactiva.php">Falla Guia Interactiva</a></li>
+                <li><a href="/pages/checklist/iptv/pixeleado.php">Imagen Pixelada</a></li>
+                <li><a href="/pages/checklist/iptv/error_inesperado.php">Mensaje de Error</a></li>
+                <li><a href="/pages/checklist/iptv/ott_vinculada.php">OTT no Vinculada</a></li>
+                <li><a href="/pages/checklist/iptv/ott_danada.php">OTT Dañado</a></li>
+
+            </ul>
+        </li>
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">DTH</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inicio DTH</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Sin Señal</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Sin Audio</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Algunos canales sin señal</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Cintillo de cobro</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Imagen Blanco Y negro</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Imagen Congelada Pixeleada</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Mensajes Especiales</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">STB no enciende</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Wireless</a>
+            <ul class="submenu">
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Inicio Pruebas</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Imposible conectarse a la Red</a></li>
+                <li><a href="/pages/checklist/iptv/inicio_prueba_iptv.php">Conectividad Limitada o Nula</a></li>
+                
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>

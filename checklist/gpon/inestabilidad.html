@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="gpon.css"> 
+        <title>Checklist</title>
+     </head>
+    <body>
+
+         <nav class="menu-horizontal">
+            <ul>
+                <li><a href="/pages/checklist/inicio_checklist.html"><i class="fas fa-home"></i> Inicio Menu</a></li>
+                <li><a href="/pages/checklist/gpon/no_navega_gpon.html"><i class="fas fa-cogs"></i> No Navega</a></li> 
+                <li><a href="/pages/checklist/gpon/lentitud.html"><i class="fas fa-user"></i> Lentitud</a></li>
+                <li><a href="/pages/checklist/gpon/inestabilidad.html"><i class="fas fa-user"></i> Inestabilidad</a></li>
+                <li><a href="/pages/checklist/gpon/pon_apagado.html"><i class="fas fa-blog"></i> PON Apagado</a></li>
+                <li><a href="/pages/checklist/gpon/sin_tono.html"><i class="fas fa-envelope"></i> Sin Tono</a></li>
+                <li><a href="/pages/checklist/gpon/ott.html"><i class="fas fa-question-circle"></i> OTT Dañado</a></li>
+                <li><a href="/pages/checklist/gpon/migracion.html"><i class="fas fa-users"></i> Migracion</a></li>
+            </ul>
+        
+        </nav>
+    <div class="container">
+        <h3>INESTABILIDAD GPON</h3>
+        <div id="step1" class="step">
+            <h4>Validar Nivel Cero</h4>
+            <p align="left">1. Revisar página Fallas generales.</p>
+            <p align="left">2. Revisar casos o averías abiertas.</p>
+            <p align="left">3. Suspensión en la Op. 25: </p>
+            <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Si el servicio esta bloqueado, enviar comando reactivar voz y datos en PISA. 25</i></p>
+            <p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Si no se Libera, Enviar WF Servicio bloqueado mayor a dos horas</i></p>
+            <p align="left">3. Verificar Velocidad Contratada PISA y UMP.</p>
+            <p align="left">4. Revisar si Aplica <b>FULL CLARO.</b></p>
+            <h3>¿Nivel Cero OK?</h3>
+            <button class="button" onclick="nextStep('step2', 'step1')">SI</button>
+            <button class="button" onclick="showResult('Favor realizar el proceso de acuerdo a la inconsistencia presentada y asegúrese de tipificar por la ruta correcta.')">NO</button>
+        </div>
+        
+        <!-- Step 2 -->
+        <div id="step2" class="step hidden">
+            <h4>Acciones a Seguir</h4>
+            <p align="left">1- Preguntar al cliente si hay daños o cortes en la fibra</p>
+            <h4>¿Hay Cortes o Daños en la Fibra?</h4>   
+            <button class="button" onclick="showResult('Se Genera Avería - Enviar a Etapa FDG')">SI</button>
+            <button class="button" onclick="nextStep('step3', 'step2')">NO</button>
+        </div>
+
+        <!-- Step 3 -->
+        <div id="step3" class="step hidden">
+            <h4>Realizar de manera correcta las siguientes Acciones:</h4>
+            <p align="left">1. Preguntar al cliente si llama del numero fijo, de ser asi devolver llamada a movil.</p>
+            <p align="left">2. Enviar RESET a la ONT desde UMP. (que el cliente confirme cuando encienda todas las luces)</p>
+            <p align="left">3. Indicar que se conecte a la red Wifi 2.4 y si tiene la 5 Ghz que se conecte a esta red</p>
+            <p align="left">4. Si es por cable, verificar que el cable este bien conectado</p>
+            <p align="left">5. Si tiene repetidor, desconectarlos</p>
+            <p align="left">6. No tener descargas activas ni tener paginas abiertas</p>
+            <p align="left">7. Desconectar los demas dispositivos y solo dejar el que realiza el Ping a google</p>
+            <h4>Realiza Ping a google (desde un PC)</h4>
+            <button class="button_modal" onclick="showModal('img/ping_a_google.png')">¿Como se Hace?</button>
+            <h4>Realiza Ping a google (desde un Movil)</h4>
+            <button class="button_modal" onclick="showModal('img/ping_movil.png')">¿Como se Hace?</button>
+            <p>Debes verificar los paquetes perdidos <button class="button_modal" onclick="showModal('img/resultado_ping.png')">Ver Ayuda </button></p> 
+             
+            <button class="button" onclick="showResult('Indicarle al cliente que Servicio funciona correctamente -  Tipificar como soporte efectivo: Reclamos ▶ Avería ▶ Internet GPON ▶ Inestabilidad')">Perdida en 0%</button>
+                 <button class="button" onclick="showResult('Se genera Queja por Inestabilidad,colocar en las pruebas los resultados del ping - Tipifica: Reclamos ▶ Avería ▶ Internet GPON ▶ Inestabilidad ▶ Se Genera Queja -R')">Perdida mayor a 1%</button>
+        </div>
+
+             
+
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span> <!-- Botón de cierre -->
+                    <img id="modalImage" src="" alt="Imagen en modal" style="width:100%; height:auto;" />
+                </div>
+            </div>
+
+        <!-- Contenedor para mostrar el resultado -->
+        <div id="resultContainer"></div>
+    </div>
+
+    <script>
+        // Función para avanzar de un paso a otro
+        function nextStep(next, current) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+
+            // Ocultar el contenedor del resultado cuando se cambia de paso
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.style.display = 'none';
+        }
+
+        // Mostrar resultado en el contenedor de la página
+        function showResult(message) {
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.style.display = 'block'; // Mostrar el contenedor
+            resultContainer.innerHTML = message; // Mostrar el mensaje en el contenedor
+        }
+
+         </script>
+        
+
+  <script>
+    // Función para mostrar el modal con la imagen seleccionada
+    function showModal(imageSrc) {
+        document.getElementById('modalImage').src = imageSrc; // Cambia la imagen en el modal
+        document.getElementById('myModal').style.display = 'block'; // Muestra el modal
+    }
+
+    // Obtener el modal y el botón de cierre
+    var modal = document.getElementById('myModal');
+    var closeBtn = document.getElementsByClassName('close')[0];
+
+    // Función para cerrar el modal cuando se hace clic en el botón de cierre
+    closeBtn.onclick = function() {
+        modal.style.display = 'none';
+    }
+
+    // Función para cerrar el modal cuando se hace clic fuera del contenido del modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+
+
+</body>
+</html>

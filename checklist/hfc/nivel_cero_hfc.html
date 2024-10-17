@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="hfc.css"> 
+    <title>Checklist Inicio pruebas</title>
+    
+</head>
+<body>
+
+   <nav class="menu-horizontal">
+                    <ul>
+                        <li><a href="/pages/checklist/inicio_checklist.html">Menu</a></li>
+                        <li><a href="/pages/checklist/adsl/inicio_pruebas_adsl.html">Inicio Adsl</a></li> 
+                        <li><a href="/pages/checklist/adsl/ok_nonavega_adsl.html">Leds Ok no navega</a></li>
+                        <li><a href="/pages/checklist/adsl/cpe_danado_adsl.html">CPE Dañado</a></li>
+                        <li><a href="/pages/checklist/adsl/cpe_reinicia_adsl.html">CPE se Reinicia</a></li>
+                        <li><a href="/pages/checklist/adsl/ethernet_off_adsl.html">Ethernet OFF</a></li>
+                        <li><a href="/pages/checklist/adsl/internet_rojo_adsl.html">Internet rojo / Off</a></li>
+                        <li><a href="/pages/checklist/adsl/lentitud_adsl.html">Lentitud e Inestabilidad</a></li>
+                        <li><a href="/pages/checklist/adsl/portadora_off.html">Portadora Off</a></li>
+                        <li><a href="/pages/checklist/adsl/wlan_rojo.html">Wlan Rojo / Off</a></li>
+                        <li><a href="/pages/checklist/adsl/linea_fija.html">Linea Fija</a></li>
+                    </ul>
+    </nav>
+
+    
+    <div class="container">
+        <h3>Inicio de Pruebas ADSL</h3>
+
+        <!-- Step 1 -->
+        <div id="step1" class="step">
+            <h2>Nivel Cero I</h2>
+
+            <!-- Contenedor en línea para el texto y el botón -->
+            <div align="left" class="inline-container">
+                <p  style="display: inline-block; margin-right: 10px;"> 1- ¿Tiene Saldos Vencido?</p>
+                <button class="button_modal" onclick="opensaldos()" style="display: inline-block;">SI</button>
+            </div>
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">2- ¿Tiene Bloqueo de suspension? ✔</p>
+                <button class="button_modal" onclick="opensuspen()" style="display: inline-block;">SI</button>
+            </div>
+
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">3- ¿Puerto en Down en UMP?</p>
+                <button class="button_modal" onclick="opendown()">SI</button>
+            </div>
+
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">4- ¿ Presenta error UMP al consultar? </p>
+                <button class="button_modal" onclick="openerror()">SI</button>
+            </div>    
+
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">5- ¿Equipo Actual Soporta la velocidad contratada? </p>
+                <button class="button_modal" onclick="openvel()">NO</button>
+            </div>
+            
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">6- ¿Nivel SNR Down en Color Rojo?</p>
+                <button class="button_modal" onclick="opensnr()">si</button>
+            </div>
+
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">7- ¿Tiene Restricciones (Revisar pagina de restricciones)?  </p>
+                <button class="button_modal" onclick="openrest()">SI</button>
+            </div>
+
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">8- ¿Esta en Falla General? </p>
+                <button class="button_modal" onclick="openfalla()">SI</button>
+            </div>
+            <div  align="left"class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">9- ¿EL ciente es reincidente?</p>
+                <button class="button_modal" onclick="openreinci()">SI</button>
+            </div> 
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">10- ¿Ordenes de Servicios Abierto?</p>
+                <button class="button_modal" onclick="openorden()">SI</button>
+            </div>  
+            <div align="left" class="inline-container">
+                <p style="display: inline-block; margin-right: 10px;">11- Revisar si Aplica Full Claro ✔ </p>
+                <button class="button_modal" onclick="openfull()">Acciones</button>
+            </div>      
+
+            
+                </br>
+               <button class="button" onclick="goBack()">Regresar</button>
+            </div>
+
+    <!-- Modal -->
+    <div id="saldos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closesaldos()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. Se le indica que tiene saldo Vencido</p>
+            <p>2. Se le da el Saldo que debe cancelar</p>
+        </div>
+    </div>
+
+    <div id="suspen" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closesuspen()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p><b>Si el pago es mayor a 2 horas </b></br> Realizas WF por bloqueo mayor a 2hrs</p>
+            <p><b>Si el pago es menor a 2 horas  </b></br>Indicarle al cliente que debe esperar un maximo de dos horas, si no se activa el servicio, llamar nuevamente para revisar la activacion</p>
+        </div>
+    </div>
+
+    <div id="down" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closedown()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>Envia Reproceso de Liberacion (Opcion 17 en PISA)</p>
+            <p><h4>Si no Levanta, Seguir checklist</h4></p>
+        </div>
+    </div>
+
+    <div id="error" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeerror()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>Ingresar Registro en herramienta de Errores UMP</p>
+            <p><h4>Seguir checklist</h4></p>
+        </div>
+    </div>
+
+    <div id="vel" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closevel()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>Generar WF Cambio de equipo por aumento de tecnologia</p>
+                            <table>
+                                <caption>Routers y Velocidades Máximas</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Docsis 3.0</th>
+                                        <th>Velocidad Máxima (Mbps)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>TC7300</td>
+                                        <td>30 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TC8305</td>
+                                        <td>25 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DPC3928SL2</td>
+                                        <td>40 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kaon CG2001</td>
+                                        <td>25 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CGA0101</td>
+                                        <td>40 Mbps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <caption>Frecuencia 5 GHz</caption>
+                                <thead>
+                                    <tr>
+                                        <th>Router</th>
+                                        <th>Velocidad Máxima (Mbps)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CGA0112</td>
+                                        <td>60 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kaon CG2200</td>
+                                        <td>200 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arris TG2482</td>
+                                        <td>200 Mbps</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Kaon CG3000</td>
+                                        <td>300 Mbps</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+        </div>
+    </div>
+
+    <div id="snr" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closesnr()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. indicarle al cliente que desconecte el cable que va del router a la cajita</p>
+            <p>2. Confirmar que este bien conectada y no haya cruce de cables</p>
+            <p>3. Actualizar 3 veses UMP</p>
+            <p><h4>Si Sigue en rojo:</h4></p>
+            <p>Generar Queja a etapa TVZ, colocar como falla: Niveles SNR en rojo</p>
+        </div>
+    </div>
+
+    <div id="rest" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closerest()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. Se le brinda la informacion indicada en las restricciones</p>
+            <p>2. No se genera Queja, al menos que cliente confirme que solvento los errores</p>
+            <p><h4>Solvento?</h4></p>
+            <p>1. Si solvento: <b> Seguir checklist</b></p>
+            <p>2. No Solvento: Soporte no aplica</p>
+        </div>
+    </div>
+
+    <div id="falla" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closefalla()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. Se le indica que el servicio esta en una falla general</p>
+            <p>2. Se le brinda el numero de falla, y se reporta en la pagina de fallas</p>
+            <p><h4>Tipificacion</h4></p>
+            <p>Falla general ▶ Tramites cortos ▶ Averia Colectiva </p>   
+        </div>
+    </div>
+
+    <div id="reinci" class="modal">
+        <div class="modal-content_imagen ">
+            <span class="close" onclick="closereinci()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. Revisar Casos historicos en Qflow</p>
+            <p>2. Se le aplica politica de Reincidente</p>
+            <p><h4>Ver politica de reincidencia</h4></p>
+            <img src="reincidencia.png" alt="Imagen de Cobro" style="max-width: 100%; height: auto; margin: 10px 0;">
+        </div>
+    </div>
+
+    <div id="orden" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeorden()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. Se le aplica Seguimiento segun corresponda a la orden</p>
+            <p><h4>Ver beneficio: </h4></p>
+        </div>
+    </div>
+
+    <div id="full" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closefull()">&times;</span>
+            <p><h4>Acciones</h4></p>
+            <p>1. Revisar en la opcion 22 de PISA</p>
+            <p>2. Al momento de consultar, debe aparecer el numero de movil</p>
+            <p>3. Debe ser el titular del servicio para activar el Full Claro</p>
+        </div>
+    </div>
+
+
+
+    <!-- Resto del código (otros pasos) -->
+    <div id="step2" class="step hidden">
+        <p><h4>Aplicar FULL CLARO</h4></p>
+        <div class="inline-container">
+           <p>- Revisar si Aplica Full Claro ✔ </p>
+           <button class="button_modal" onclick="openfull()">Acciones</button>
+       </div> 
+   </br>
+   <button class="button" onclick="nextStep('step2')">Continuar Checklist</button>
+</div>
+
+    <div id="step3" class="step hidden">
+        <p><h4>Aplicar FULL CLARO</h4></p>
+            <div class="inline-container">
+                <p>- Revisar si Aplica Full Claro ✔ </p>
+                <button class="button_modal" onclick="openfull()">Acciones</button>
+            </div> 
+                </br>
+                <button class="button" onclick="nextStep('step3')">Continuar Checklist</button>
+    </div>
+
+
+
+<!-- Otros pasos, manteniendo la estructura original del código -->
+
+<div id="result" class="step hidden">
+    <p id="resultMessage"></p>
+    <button class="button" onclick="reset()">Reiniciar</button>
+</div>
+
+</div>
+
+<script>
+        
+
+// funcion para los step
+
+
+    function nextStep(answer) {
+        document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+            /* step1 */
+        if (answer === 'step1') {
+            document.getElementById('step2').classList.remove('hidden');
+        } else if (answer === 'no_saldos') {
+            document.getElementById('resultMessage').innerText = 'Debes indicarle que tiene un saldo pendiente, le brindas el saldo -  Tipificar: ▶ Consulta ▶ Factura ▶ Residencial ▶ Detalle ▶ Saldo y fecha de Corte -R' ;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+        if (answer === 'step2') {
+            document.getElementById('step3').classList.remove('hidden');
+        } else if (answer === 'no_saldos') {
+            document.getElementById('resultMessage').innerText = 'Debes indicarle que tiene un saldo pendiente, le brindas el saldo -  Tipificar: ▶ Consulta ▶ Factura ▶ Residencial ▶ Detalle ▶ Saldo y fecha de Corte -R' ;
+            document.getElementById('result').classList.remove('hidden');
+        }
+
+
+
+            //Colocar Otros pasos...
+    }
+
+            //Funcion para Boton de Reinicio.
+    function reset() {
+        document.querySelectorAll('.step').forEach(step => step.classList.add('hidden'));
+        document.getElementById('step1').classList.remove('hidden');
+        document.getElementById('resultMessage').innerText = '';
+    }
+</script>
+
+
+ <script>
+        function goBack() {
+            window.history.back(); // Función que regresa a la página anterior
+        }
+    </script>
+
+<script src="modal_hfc.js"></script> <!-- controla el modal -->
+</body>
+</html>
